@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* todos os elementos (*) não vai ter mais o valor padrão do navegador */
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  Define que a imagem de fundo não deve se repetir 
+  background-position: top center;
+  Define a posição da imagem de fundo no centro superior 
+  background-size: cover;
+  Faz com que a imagem de fundo cubra todo o elemento */
+
+  /* background: color image repeat position/size */
+  background: url(./assets/bg-mobile.jpg) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+#container {
+  border: 1px solid red;
+  width: 360px;
+  /* ordem:
+  margin-top: 56px;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto; 
+  se tem 1 propriedade aplica para todos os lados
+  se tem 2 propriedades aplica para o primeiro valor para o top e bottom e o segundo valor para o right e left
+  se tem 3 propriedades vai aplicar o primeiro para o top o segundo para o right e left e o terceiro para o bottom
+  se tem 4 propriedades o valor aplica cada um para cada começando pelo top, right, bottom, left*/
+  margin: 56px auto 0px; 
+  
+  
+}
+/* Não é necessario colocar a altura (height) fixo, tem que deixar ela fluir, pois toda vez que for colocar algum outro conteudo dentro da div irá aumentar a altura*/
+
+#profile {
+
+  text-align: center;
+  /* Todos os elementos filhos inline serão centralizados no pai, se fosse display block o elemento filho não iria ser centralizado */
+  padding: 24px
+}
+
+#profile img{
+  /* display: block;
+  margin: auto; */
+  width: 112px;
+}
+/* Em elemento inline como o img, não da para colocar o margin:auto; entao para transformar em margin auto, voce precisa transformar o elemento em block*/
+
+#profile p {
+  font-weight: 500;
+  /* por padrão o font size do navegador já é 16px então nao precisa colocar */
+  line-height: 24px;
+  margin-top: 8px;
+}
