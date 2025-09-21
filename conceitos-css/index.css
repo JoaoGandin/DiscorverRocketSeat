@@ -1,0 +1,27 @@
+/* 
+exemplo de que os elementos em HTML serao considerados uma caixa 
+as caixas possuem determinadas propriedades: Conteudo, largura, altura, borda, preenchimento(espaco interno), espacamento(espaco externo).
+*/
+header{
+  border: 1px solid red;
+
+  padding: 60px
+}
+/* as tags h1 e p usado no exemplo, por padrao, ja sao display: block; (quebra linha) e a tag span por padrao e display: line; (mesma linha) */
+h1{
+  border: 1px solid green;
+
+  height: 60px;
+  display: inline;
+}
+
+p{
+  margin: 20px;
+  display: inline;
+  border: 1px solid purple
+}
+
+span{
+  border: 1px solid pink;
+  display: block;
+}
