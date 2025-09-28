@@ -24,7 +24,6 @@ body * {
 }
 
 #container {
-  border: 1px solid red;
   width: 360px;
   /* ordem:
   margin-top: 56px;
@@ -36,6 +35,7 @@ body * {
   se tem 3 propriedades vai aplicar o primeiro para o top o segundo para o right e left e o terceiro para o bottom
   se tem 4 propriedades o valor aplica cada um para cada começando pelo top, right, bottom, left*/
   margin: 56px auto 0px;
+  padding: 0px 24px;
 }
 /* Não é necessario colocar a altura (height) fixo, tem que deixar ela fluir, pois toda vez que for colocar algum outro conteudo dentro da div irá aumentar a altura*/
 
@@ -64,17 +64,70 @@ ul {
   list-style: none;
   /* siginifica estilo da lista e none significa nenhum (vai tirar os bullet points)*/
   /* display: flex; */
-  /* o flex deixa os elementos dentro da caixa (os elementos da caixa são os li's e a caixa é o ul), de uma maneira flexivel (tentando se encaixar), por padrão o flex-direction já é row que significa linha, ai o column é a coluna*/
+  /* o flex deixa os elementos dentro da caixa (os elementos da caixa são os li's e a caixa é o ul), de uma maneira flexivel (tentando se encaixar) ele cria uma "linha" no meio do elemento que ele adicionou (o nome dessa linha se chama main como se fosse um plano cartesiano com o x e y) ai se vc quiser alinhar no centro dessa linha (x ou eixo transversal) você usa o align-items e o justify-content alinha no (y ou eixo principal), por padrão o flex-direction já é row que significa linha, ai o column é a coluna*/
   /* flex-direction: column;
   gap: 8px; */
   /* gap coloca espaço ENTRE os elementos */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* peguei minha ul e cada filho que tem dentro dela (li's) estao recebendo um ajuste flexivel das coisas, como a coluna e o espaço entre eles de 16px*/
+
+  padding: 24px 0;
 }
 
 ul li a {
-  border: 1px solid red;
   /* o elemento "a (link)" ele é display inline (ocupa so o tamanho do elemento) e o flex faz com que ele ocupe o tamanho no container, por exemplo 360px*/
   display: flex; /*faz sentido pq a borda vai ocupar o width do container em vez so do elemento*/
   flex-direction: row; /*não faz sentido pq por padrão ja é row*/
   gap: 8px; /*não faz sentido, pq não faz diferença nenhuma, porque dentro do a so tem os textos (conteudo/content, que no caso é só um), então não tem como fazer o espaçamento entre os elementos*/
+  justify-content: center; /*faz sentido, porque pegou o conteudo e alinhou ao meio*/
+  align-items: center;
+
+  padding: 16px 24px;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  /* rgba: red, green, blue e alpha */
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  /* da um blur (eu num percebi nenhum) */
+
+  text-decoration: none;
+  /* tira a linha que fica em baixo */
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+/* pseudo-selector */
+ul li a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid white;
+  /* quando vc tiver com o cursor em cima vai ter uma animação, antes do pseudo-selector (na ul li a de cima) voce tem que colocar o transistion para ficar mais suave */
+}
+
+/* social links */
+#social-links {
+  display: flex;
   justify-content: center;
+
+  padding: 24px 0;
+
+  font-size: 24px;
+  /* mudando o font-size de todos os elementos do social-links */
+}
+
+#social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  border-radius: 50%;
+
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
