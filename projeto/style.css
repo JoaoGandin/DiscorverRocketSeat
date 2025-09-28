@@ -35,20 +35,17 @@ body * {
   se tem 2 propriedades aplica para o primeiro valor para o top e bottom e o segundo valor para o right e left
   se tem 3 propriedades vai aplicar o primeiro para o top o segundo para o right e left e o terceiro para o bottom
   se tem 4 propriedades o valor aplica cada um para cada começando pelo top, right, bottom, left*/
-  margin: 56px auto 0px; 
-  
-  
+  margin: 56px auto 0px;
 }
 /* Não é necessario colocar a altura (height) fixo, tem que deixar ela fluir, pois toda vez que for colocar algum outro conteudo dentro da div irá aumentar a altura*/
 
 #profile {
-
   text-align: center;
   /* Todos os elementos filhos inline serão centralizados no pai, se fosse display block o elemento filho não iria ser centralizado */
-  padding: 24px
+  padding: 24px;
 }
 
-#profile img{
+#profile img {
   /* display: block;
   margin: auto; */
   width: 112px;
@@ -60,4 +57,24 @@ body * {
   /* por padrão o font size do navegador já é 16px então nao precisa colocar */
   line-height: 24px;
   margin-top: 8px;
+}
+
+/* Links */
+ul {
+  list-style: none;
+  /* siginifica estilo da lista e none significa nenhum (vai tirar os bullet points)*/
+  /* display: flex; */
+  /* o flex deixa os elementos dentro da caixa (os elementos da caixa são os li's e a caixa é o ul), de uma maneira flexivel (tentando se encaixar), por padrão o flex-direction já é row que significa linha, ai o column é a coluna*/
+  /* flex-direction: column;
+  gap: 8px; */
+  /* gap coloca espaço ENTRE os elementos */
+}
+
+ul li a {
+  border: 1px solid red;
+  /* o elemento "a (link)" ele é display inline (ocupa so o tamanho do elemento) e o flex faz com que ele ocupe o tamanho no container, por exemplo 360px*/
+  display: flex; /*faz sentido pq a borda vai ocupar o width do container em vez so do elemento*/
+  flex-direction: row; /*não faz sentido pq por padrão ja é row*/
+  gap: 8px; /*não faz sentido, pq não faz diferença nenhuma, porque dentro do a so tem os textos (conteudo/content, que no caso é só um), então não tem como fazer o espaçamento entre os elementos*/
+  justify-content: center;
 }
