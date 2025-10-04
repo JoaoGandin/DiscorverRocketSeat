@@ -84,6 +84,14 @@ body * {
 }
 
 /* switch */
+#switch {
+  position: relative;
+  /* coloquei esse position no switch para podermos usar propriedades como top, right, left, bottom, dentro apenas do switch e não na pagina inteira. O position: relative; ele vai relativizar o absolute do button*/
+  width: 64px;
+  /* deixar no mesmo tamanho do track */
+  margin: 4px auto;
+  /* alinhamento de display block é assim */
+}
 
 #switch button {
   width: 32px;
@@ -91,6 +99,35 @@ body * {
   background: white var(--switch-bg-url) no-repeat center;
   border: 0;
   border-radius: 50%;
+
+  position: absolute;
+  /* O absolute vai ser relativo ao elemento do switch, porque ele esta recebendo position relative, esse relative não vai modificar muita coisa, não, só vai permitir que qualquer coisa que tiver absoluto dentro dele, no caso o button, fique certinho dentro dele*/
+  /* quando eu falo que o posicionamento dele vai ser absolute, automaticamente ele faz uma sobreposição de camadas, o position: absolute libera para nós usar a propriedade z-index que muda os andares*/
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  /* imagina que é um "prédio", ai o button e o span ta no andar 1 um em cima do outro ja que são display block e você tem uma visão de cima para baixo conseguindo visualizar todas as camadas desse "prédio", o z-index vai passar para o andar de cima (layer/camada) ai você vai começar a ver como se o button tivesse em cima do span (que no caso é o desenho em cima do track) */
+  transform: translateY(-50%);
+  /* o eixo Y pode mover o elemento para cima ou para baixo */
+  /* alinhamento de absolute */
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+  /* o left volta para sua maneira inicial */
+}
+
+#switch span {
+  display: block;
+  /* trocou o display para block porque inline não aceita algumas propriedades como a largura*/
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
 }
 
 /* Links */
@@ -117,6 +154,7 @@ ul li a {
   gap: 8px; /*não faz sentido, pq não faz diferença nenhuma, porque dentro do a so tem os textos (conteudo/content, que no caso é só um), então não tem como fazer o espaçamento entre os elementos*/
   justify-content: center; /*faz sentido, porque pegou o conteudo e alinhou ao meio*/
   align-items: center;
+  /* isso é um alinhamento de display flex */
 
   padding: 16px 24px;
 
@@ -171,6 +209,7 @@ ul li a:hover {
 footer {
   padding: 24px 0;
   text-align: center;
+  /* alinhamento de texto */
   font-size: 14px;
   /* textos alinhados ao centro */
 }
