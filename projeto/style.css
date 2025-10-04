@@ -3,6 +3,29 @@
   padding: 0;
 }
 /* todos os elementos (*) não vai ter mais o valor padrão do navegador */
+
+:root {
+  /* root é um pseudo-selector */
+  --text-color: white;
+  /* ao fazer isso, tudo que usar essa váriavel vai usar branco no lugar por exemplo no body *, as bordas, etc... */
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
 body {
   /*
   background-image: url(./assets/bg-mobile.jpg);
@@ -14,12 +37,12 @@ body {
   Faz com que a imagem de fundo cubra todo o elemento */
 
   /* background: color image repeat position/size */
-  background: url(./assets/bg-mobile.jpg) no-repeat top center/cover;
+  background: var(--bg-url) no-repeat top center/cover;
 }
 
 body * {
   font-family: "Inter", sans-serif;
-  color: #ffffff;
+  color: var(--text-color);
   box-sizing: border-box;
 }
 
@@ -39,6 +62,7 @@ body * {
 }
 /* Não é necessario colocar a altura (height) fixo, tem que deixar ela fluir, pois toda vez que for colocar algum outro conteudo dentro da div irá aumentar a altura*/
 
+/* profile */
 #profile {
   text-align: center;
   /* Todos os elementos filhos inline serão centralizados no pai, se fosse display block o elemento filho não iria ser centralizado */
@@ -59,6 +83,16 @@ body * {
   margin-top: 8px;
 }
 
+/* switch */
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+}
+
 /* Links */
 ul {
   list-style: none;
@@ -77,7 +111,7 @@ ul {
 }
 
 ul li a {
-  /* o elemento "a (link)" ele é display inline (ocupa so o tamanho do elemento) e o flex faz com que ele ocupe o tamanho no container, por exemplo 360px*/
+  /* o elemento a (link) ele é display inline (ocupa so o tamanho do elemento) e o flex faz com que ele ocupe o tamanho no #container, por exemplo 360px*/
   display: flex; /*faz sentido pq a borda vai ocupar o width do container em vez so do elemento*/
   flex-direction: row; /*não faz sentido pq por padrão ja é row*/
   gap: 8px; /*não faz sentido, pq não faz diferença nenhuma, porque dentro do a so tem os textos (conteudo/content, que no caso é só um), então não tem como fazer o espaçamento entre os elementos*/
@@ -86,8 +120,8 @@ ul li a {
 
   padding: 16px 24px;
 
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
   /* rgba: red, green, blue e alpha */
   border-radius: 8px;
   backdrop-filter: blur(4px);
@@ -98,12 +132,13 @@ ul li a {
   font-weight: 500;
 
   transition: background 0.2s;
+  /* transição para o hover para não ir instantâneo */
 }
 
 /* pseudo-selector */
 ul li a:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1.5px solid white;
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
   /* quando vc tiver com o cursor em cima vai ter uma animação, antes do pseudo-selector (na ul li a de cima) voce tem que colocar o transistion para ficar mais suave */
 }
 
@@ -129,5 +164,13 @@ ul li a:hover {
 }
 
 #social-links a:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--highlight-color);
+}
+
+/* Footer */
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+  /* textos alinhados ao centro */
 }
